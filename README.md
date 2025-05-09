@@ -6,26 +6,33 @@ The **S2S-AI** plugin allows you to segment elements directly in QGIS using **Mo
 
 ## 🔧 Installation Guide
 
-### 1. Environment Setup
+### 1. Prerequisites
 
-This step ensures that required libraries are installed and avoids conflicts with system Python installations.
+Before proceeding, ensure that you have **Git** and **Conda** installed:
 
-- Download and install [Anaconda](https://www.anaconda.com/download/success).
-- Open the **Anaconda Prompt** and create a new environment:
+- For windows user:
+  - Download and install **Git** ([Git-2.49.0-64-bit.exe](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/Git-2.49.0-64-bit.exe)).  
+  - Download and install **Miniconda** ([Miniconda3-latest-Windows-x86_64.exe](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/Miniconda3-latest-Windows-x86_64.exe)).
+
+- For Mac and Linux:
+  - Download and install **Git** from [https://git-scm.com/](https://git-scm.com/).
+  - Download and install **Miniconda** from [https://www.anaconda.com/download/success#miniconda](https://www.anaconda.com/download/success#miniconda)
+
+---
+
+### 2. Environment Setup (Miniconda)
+
+1. In the windows search bar, look for this new program: 
+
+    ![Anaconda prompt](assets/aprompt.png)
+
+- Open the **Anaconda Prompt**, copy and paste the following commands:
 
 ```bash
-conda create --name sam_qgis_env python=3.10
-conda activate sam_qgis_env
-```
-
-- Install PyTorch according to your CUDA version:  
-  → [https://pytorch.org/get-started/locally](https://pytorch.org/get-started/locally)  
-  Check your CUDA version with `nvidia-smi`.
-
-- Install required libraries:
-
-```bash
-pip install opencv-python numpy flask pycocotools timm
+conda create --name sam_qgis_env python=3.10 -y & 
+conda activate sam_qgis_env &
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 &
+pip install opencv-python numpy flask pycocotools timm &
 pip install git+https://github.com/ChaoningZhang/MobileSAM.git
 ```
 
@@ -33,13 +40,16 @@ pip install git+https://github.com/ChaoningZhang/MobileSAM.git
 
 ### 2. Plugin Installation in QGIS
 
-- Download the plugin ZIP: `S2S-AI-MobileSAM.zip`
-- Download the MobileSAM weights:  
-  [`mobile_sam.pt`](https://github.com/ChaoningZhang/MobileSAM/blob/master/weights/mobile_sam.pt)  
+- Download the plugin: [S2S-AI-MobileSAM.zip](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/S2S-AI-MobileSAM.zip)
+- Download MobileSAM: [mobile_sam.pt](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/mobile_sam.pt)  
 
 #### Install in QGIS:
 
-- Open QGIS → `Plugins` → `Manage and Install Plugins…`
+- Open QGIS 
+- In the top menu select `Plugins`, then `Manage and Install Plugins…`
+
+    ![plugins](assets/plugins.png)
+
 - From the left bar, select **Install from ZIP** → browse for `S2S-AI-MobileSAM.zip`
 - Click **Install Plugin**
 - If a warning appears, press **Yes**
