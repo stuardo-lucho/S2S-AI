@@ -8,6 +8,12 @@ The **S2S-AI** plugin allows you to segment elements directly in QGIS using **Mo
 
 ### 1. Prerequisites
 
+#### 1.1 GPU
+
+Your computer must have a graphics card (GPU)
+
+#### 1.2 Git and Conda
+
 Before proceeding, ensure that you have **Git** and **Conda** installed:
 
 - For windows user:
@@ -22,7 +28,7 @@ Before proceeding, ensure that you have **Git** and **Conda** installed:
 
 ### 2. Environment Setup (Miniconda)
 
-1. In the windows search bar, look for this new program: 
+- In the windows search bar, look for this new program: 
 
     ![Anaconda prompt](assets/aprompt.png)
 
@@ -38,7 +44,7 @@ pip install git+https://github.com/ChaoningZhang/MobileSAM.git
 
 ---
 
-### 2. Plugin Installation in QGIS
+### 3. Plugin Installation in QGIS
 
 - Download the plugin: [S2S-AI-MobileSAM.zip](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/S2S-AI-MobileSAM.zip)
 - Download MobileSAM: [mobile_sam.pt](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/mobile_sam.pt)  
@@ -65,14 +71,21 @@ Once installed, you will see 3 new buttons in the QGIS top bar:
 
 ### First-Time Setup:
 
-1. Click **Configuration**
-2. Set the following:
-   - **Pt File** → select `mobile_sam.pt`
-   - **Conda Environment Path**  
-     - On Linux/Mac: `which python`  
-     - On Windows: `where python` (choose the line with `sam_qgis_env`)
+1. Click the **Configuration** button
+2. The following window will appear:
 
-3. Click the **Start** button  
+    ![Conf](assets/conf.png)
+
+    Set the following:
+   - **Pt File** → select `mobile_sam.pt`
+   - **Conda Environment Path** → go back to the Anaconda Prompt, type and copy the output
+     - On Linux/Mac: `which python`  
+     - On Windows: `where python` (copy all the line that includes `sam_qgis_env`)
+      ![Conf](assets/conf_out.png)
+
+3. Click **Ok**
+
+4. Click the **Start** button  
    → If it turns into **Stop** (green), the Plugin has started successfully
 
 ### Segmentation
