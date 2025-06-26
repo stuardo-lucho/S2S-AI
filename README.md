@@ -14,31 +14,42 @@ Your computer must have a graphics card (GPU)
 
 #### 1.2 Git and Conda
 
-Before proceeding, ensure that you have **Git** and **Conda** installed:
+Before proceeding, ensure that you have **Git** and **MiniConda** (or conda) installed:
 
-- For windows user:
-  - Download and install **Git** ([Git-2.49.0-64-bit.exe](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/Git-2.49.0-64-bit.exe)).  
-  - Download and install **Miniconda** ([Miniconda3-latest-Windows-x86_64.exe](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/Miniconda3-latest-Windows-x86_64.exe)).
-
-- For Mac and Linux:
   - Download and install **Git** from [https://git-scm.com/](https://git-scm.com/).
   - Download and install **Miniconda** from [https://www.anaconda.com/download/success#miniconda](https://www.anaconda.com/download/success#miniconda)
 
 ---
 
-### 2. Environment Setup (Miniconda)
+### 2. Environment Setup
 
-- In the windows search bar, look for this new program: 
+#### In Windows:
+ - look for the **Anaconda Prompt** app.  
 
     ![Anaconda prompt](assets/aprompt.png)
 
-- Open the **Anaconda Prompt**, copy and paste the following commands:
+- In the opened app, copy and paste the following commands (one line at a time):
 
 ```bash
-conda create --name sam_qgis_env python=3.10 -y & 
-conda activate sam_qgis_env &
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 &
-pip install opencv-python numpy flask pycocotools timm &
+conda create --name sam_qgis_env python=3.10 -y 
+conda activate sam_qgis_env
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install opencv-python numpy flask pycocotools timm
+pip install git+https://github.com/ChaoningZhang/MobileSAM.git
+```
+
+#### In Mac/Linux:
+ - look for the **Terminal** app.  
+
+    ![Anaconda prompt](assets/terminal.png)
+
+- In the opened app, copy and paste the following commands (one line at a time):
+
+```bash
+conda create --name sam_qgis_env python=3.10 -y 
+conda activate sam_qgis_env
+pip install torch torchvision torchaudio
+pip install opencv-python numpy flask pycocotools timm
 pip install git+https://github.com/ChaoningZhang/MobileSAM.git
 ```
 
@@ -46,8 +57,8 @@ pip install git+https://github.com/ChaoningZhang/MobileSAM.git
 
 ### 3. Plugin Installation in QGIS
 
-- Download the plugin: [S2S-AI-MobileSAM.zip](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/S2S-AI-MobileSAM.zip)
-- Download MobileSAM: [mobile_sam.pt](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/mobile_sam.pt)  
+- 📦 Download the plugin: [S2S-AI-MobileSAM.zip](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/S2S-AI-MobileSAM.zip)
+- 🧠 Download MobileSAM: [mobile_sam.pt](https://github.com/stuardo-lucho/S2S-AI/releases/download/S2S-AI/mobile_sam.pt)  
 
 #### Install in QGIS:
 
@@ -85,10 +96,10 @@ Once installed, you will see 3 new buttons in the QGIS top bar:
 
 3. Click **Ok**
 
-4. Click the **Start** button  
+4. Click the **Start/Stop** button  
    → If it turns into **Stop** (green), the Plugin has started successfully
 
-### Segmentation
+### Segmentation:
 
 - Click the **Segment** button
 - Choose:
